@@ -15,26 +15,7 @@ class IdeasContainer extends Component {
   }
 
   addNewIdea = () => {
-    axios.post(
-      'http://localhost:3001/api/v1/ideas',
-      { idea:
-        {
-          title: '',
-          body: ''
-        }
-      }
-    )
-    .then(response => {
-      console.log(response)
-      const ideas = update(this.state.ideas, {
-        $splice: [[0, 0, response.data]]
-      })
-      this.setState({
-        ideas: ideas,
-        editingIdeaId: response.data.id
-      })
-    })
-    .catch(error => console.log(error))
+    this.props.ideaActions.addNewIdea()
   }
 
   updateIdea = (idea) => {
@@ -69,6 +50,13 @@ class IdeasContainer extends Component {
 
 
   render() {
+    if(!this.props.ideas){
+        return (
+            <div>
+                Loading Stuff...
+            </div>
+        )
+    }else{
     return (
       <div>
         <div>
@@ -91,6 +79,7 @@ class IdeasContainer extends Component {
     );
   }
 }
+}
 
 IdeasContainer.propTypes = {
     ideaActions: PropTypes.object,
@@ -98,6 +87,7 @@ IdeasContainer.propTypes = {
 };
 
 function mapStateToProps(state) {
+  debugger
     return {
         ideas: state.ideas,
         editingIdeaId: state.editingIdeaId,

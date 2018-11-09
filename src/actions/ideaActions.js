@@ -24,14 +24,8 @@ export function addNewIdea() {
         }
       )
       .then(response => {
-        console.log(response)
-        const ideas = update(this.state.ideas, {
-          $splice: [[0, 0, response.data]]
-        })
-        this.setState({
-          ideas: ideas,
-          editingIdeaId: response.data.id
-        })
+        dispatch({type: 'ADD_IDEA', idea: response.data})
+
       })
       .catch(error => console.log(error))
   };
