@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 import IdeasContainer from './components/IdeasContainer'
-import StuffList from './components/StuffList'
 
 class App extends Component {
   render() {
