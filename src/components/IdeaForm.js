@@ -22,16 +22,16 @@ class IdeaForm extends Component {
       body: this.state.body
     }
 
-    axios.put(
-      `http://localhost:3001/api/v1/ideas/${this.props.idea.id}`,
-      {
-        idea: idea
+      axios.put(
+        `http://localhost:3001/api/v1/ideas/${this.props.idea.id}`,
+        {
+          idea: idea
+        })
+      .then(response => {
+        console.log(response)
+        this.props.updateIdea(response.data)
       })
-    .then(response => {
-      console.log(response)
-      this.props.updateIdea(response.data)
-    })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
   }
 
 

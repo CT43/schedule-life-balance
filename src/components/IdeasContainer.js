@@ -19,14 +19,9 @@ class IdeasContainer extends Component {
   }
 
   updateIdea = (idea) => {
-    const ideaIndex = this.state.ideas.findIndex(x => x.id === idea.id)
-    const ideas = update(this.state.ideas, {
-      [ideaIndex]: { $set: idea }
-    })
-    this.setState({
-      ideas: ideas,
-      notification: 'All changes saved'
-    })
+    const ideaIndex = this.props.ideas.findIndex(x => x.id === idea.id)
+    const ideas = update(this.props.ideas, {[ideaIndex]: { $set: idea }})
+    this.setState({ideas: ideas, notification: 'All changes saved', transitionIn: true})
   }
 
   resetNotification = () => {
@@ -70,7 +65,7 @@ class IdeasContainer extends Component {
         </div>
         {this.props.ideas.map((idea) => {
           if(this.props.editingIdeaId === idea.id) {
-            return(<IdeaForm idea={idea} key={idea.id} updateIdea={this.updateIdea} resetNotification={this.resetNotification} titleRef= {input => this.title = input} />)
+            return(<IdeaForm idea={idea} key={idea.id} updateIdea={this.updateIdea(idea)} resetNotification={this.resetNotification} titleRef= {input => this.title = input} />)
           } else {
             return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing} onDelete={this.deleteIdea} />)
           }
@@ -88,7 +83,9 @@ IdeasContainer.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        ideas: state.ideas.ideas
+        ideas: state.ideas.ideas,
+        editingIdeaId: state.ideas.editingIdeaId,
+        notification: state.ideas.notification
           };
 }
 

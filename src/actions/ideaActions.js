@@ -30,3 +30,18 @@ export function addNewIdea() {
       .catch(error => console.log(error))
   };
 }
+
+export function updateIdea(idea, id) {
+    return (dispatch) => {
+      axios.put(
+        `http://localhost:3001/api/v1/ideas/${id}`,
+        {
+          idea: idea
+        })
+      .then(response => {
+        console.log(response)
+        this.props.updateIdea(response.data)
+      })
+      .catch(error => console.log(error))
+  };
+}
