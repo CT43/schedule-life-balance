@@ -87,12 +87,9 @@ IdeasContainer.propTypes = {
 };
 
 function mapStateToProps(state) {
-  debugger
     return {
-        ideas: state.ideas,
-        editingIdeaId: state.editingIdeaId,
-        notification: state.notification
-    };
+        ideas: state.ideas.ideas
+          };
 }
 
 function mapDispatchToProps(dispatch) {
