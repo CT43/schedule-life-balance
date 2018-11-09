@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import { render } from 'react-dom';
 import configureStore from './store/configureStore';
+import $ from "jquery"
 
 const store = configureStore();
 
