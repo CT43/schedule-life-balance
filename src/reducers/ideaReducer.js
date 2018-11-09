@@ -1,6 +1,6 @@
 import initialState from './initialState';
 import update from 'immutability-helper'
-import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA} from '../actions/allActions';
+import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING} from '../actions/allActions';
 
 export default function ideas(state = {
   ideas: [],
@@ -23,13 +23,9 @@ export default function ideas(state = {
         $splice: [[0, 0, action.idea]]
       })
       return {ideas: ideas, editingIdeaId: action.idea.id, notification: ''}
-    case UPDATE_IDEA:
-      console.log('UPDATE_IDEAS Action')
-      debugger
-      ideas = update(state.ideas, {
-        $splice: [[0, 0, action.idea]]
-      })
-      return {ideas: ideas, editingIdeaId: null, notification: '' }
+    case ENABLE_EDITING:
+      console.log('ENABLE_EDITING Action')
+      return {...state, editingIdeaId: action.id, notification: ''}
     default:
       return state;
   }

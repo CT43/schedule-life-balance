@@ -12,6 +12,7 @@ export function fetchIdeas() {
     .catch(error => console.log(error))
   };
 }
+
 export function addNewIdea() {
     return (dispatch) => {
       axios.post(
@@ -31,17 +32,8 @@ export function addNewIdea() {
   };
 }
 
-export function updateIdea(idea, id) {
+export function enableEditing(id) {
     return (dispatch) => {
-      axios.put(
-        `http://localhost:3001/api/v1/ideas/${id}`,
-        {
-          idea: idea
-        })
-      .then(response => {
-        console.log(response)
-        this.props.updateIdea(response.data)
-      })
-      .catch(error => console.log(error))
-  };
+        dispatch({type: 'ENABLE_EDITING', id: id})
+      }
 }

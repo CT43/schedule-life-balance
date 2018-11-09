@@ -18,10 +18,10 @@ class Idea extends Component {
           x
         </span>
         <h4 onClick={this.handleClick}>
-          {this.props.idea.title}
+          -{this.props.idea.title}
         </h4>
         <p onClick={this.handleClick}>
-          {this.props.idea.body}
+          -{this.props.idea.body}
         </p>
       </div>
     )

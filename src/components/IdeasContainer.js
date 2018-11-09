@@ -29,9 +29,9 @@ class IdeasContainer extends Component {
   }
 
   enableEditing = (id) => {
-    this.setState({editingIdeaId: id},
-      () => { this.title.focus() })
-  }
+    this.props.ideaActions.enableEditing(id,
+      () => { this.title.focus() },
+  )}
 
   deleteIdea = (id) => {
     axios.delete(`http://localhost:3001/api/v1/ideas/${id}`)
