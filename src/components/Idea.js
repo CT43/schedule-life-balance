@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class Idea extends Component {
 
   handleClick = () => {
-    debugger
     this.props.onClick(this.props.idea.id)
   }
 

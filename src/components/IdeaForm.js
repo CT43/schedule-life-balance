@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as ideaActions from '../actions/ideaActions';
+import PropTypes from 'prop-types';
+
 
 class IdeaForm extends Component {
 
@@ -12,26 +17,16 @@ class IdeaForm extends Component {
   }
 
   handleInput = (e) => {
-    this.props.resetNotification()
     this.setState({[e.target.name]: e.target.value})
-  }
+      }
 
   handleBlur = () => {
     const idea = {
       title: this.state.title,
-      body: this.state.body
+      body: this.state.body,
+      id: this.props.editingIdeaId
     }
-
-      axios.put(
-        `http://localhost:3001/api/v1/ideas/${this.props.idea.id}`,
-        {
-          idea: idea
-        })
-      .then(response => {
-        console.log(response)
-        this.props.updateIdea(response.data)
-      })
-      .catch(error => console.log(error))
+    this.props.ideaActions.updateIdea(idea)
   }
 
 
@@ -53,4 +48,23 @@ class IdeaForm extends Component {
   }
 }
 
-export default IdeaForm
+IdeaForm.propTypes = {
+    ideaActions: PropTypes.object,
+    ideas: PropTypes.array
+};
+
+function mapStateToProps(state) {
+    return {
+        ideas: state.ideas.ideas,
+        editingIdeaId: state.ideas.editingIdeaId,
+        notification: state.ideas.notification
+          };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+       ideaActions: bindActionCreators(ideaActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IdeaForm);

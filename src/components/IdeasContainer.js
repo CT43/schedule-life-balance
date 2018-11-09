@@ -18,19 +18,10 @@ class IdeasContainer extends Component {
     this.props.ideaActions.addNewIdea()
   }
 
-  updateIdea = (idea) => {
-    const ideaIndex = this.props.ideas.findIndex(x => x.id === idea.id)
-    const ideas = update(this.props.ideas, {[ideaIndex]: { $set: idea }})
-    this.setState({ideas: ideas, notification: 'All changes saved', transitionIn: true})
-  }
-
-  resetNotification = () => {
-    this.setState({notification: ''})
-  }
 
   enableEditing = (id) => {
     this.props.ideaActions.enableEditing(id,
-      () => { this.title.focus() },
+      () => { this.props.idea.title.focus() },
   )}
 
   deleteIdea = (id) => {
@@ -65,7 +56,7 @@ class IdeasContainer extends Component {
         </div>
         {this.props.ideas.map((idea) => {
           if(this.props.editingIdeaId === idea.id) {
-            return(<IdeaForm idea={idea} key={idea.id} updateIdea={this.updateIdea(idea)} resetNotification={this.resetNotification} titleRef= {input => this.title = input} />)
+            return(<IdeaForm idea={idea} key={idea.id}  resetNotification={this.resetNotification} titleRef= {input => this.title = input} />)
           } else {
             return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing} onDelete={this.deleteIdea} />)
           }

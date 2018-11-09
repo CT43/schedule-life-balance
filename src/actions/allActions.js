@@ -4,3 +4,4 @@ export const ADD_IDEA = 'ADD_IDEA';
 export const DELETE_IDEA = 'DELETE_IDEA';
 export const UPDATE_IDEA = 'UPDATE_IDEA';
 export const ENABLE_EDITING = 'ENABLE_EDITING';
+export const RESET_NOTIFICATION = 'RESET_NOTIFICATION';

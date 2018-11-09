@@ -37,3 +37,18 @@ export function enableEditing(id) {
         dispatch({type: 'ENABLE_EDITING', id: id})
       }
 }
+
+export function updateIdea(idea) {
+    return (dispatch) => {
+      axios.put(
+        `http://localhost:3001/api/v1/ideas/${idea.id}`,
+        {
+          idea: { title: `${idea.title}`,
+          body: `${idea.body}`}
+        })
+      .then(response => {
+        dispatch({type: 'UPDATE_IDEA', idea: response.data})
+      })
+      .catch(error => console.log(error))
+  };
+}
