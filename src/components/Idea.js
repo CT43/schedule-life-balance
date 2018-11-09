@@ -10,6 +10,7 @@ class Idea extends Component {
     this.props.onDelete(this.props.idea.id)
   }
 
+
   render () {
     return(
       <div className="tile">

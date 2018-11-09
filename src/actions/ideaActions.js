@@ -52,3 +52,13 @@ export function updateIdea(idea) {
       .catch(error => console.log(error))
   };
 }
+
+export function deleteIdea(id) {
+    return (dispatch) => {
+      axios.delete(`http://localhost:3001/api/v1/ideas/${id}`)
+      .then(response => {
+        dispatch({type: 'DELETE_IDEA', id: id})
+      })
+      .catch(error => console.log(error))
+  };
+}

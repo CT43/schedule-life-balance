@@ -29,13 +29,20 @@ export default function ideas(state = {
       return {...state, editingIdeaId: action.id, notification: ''}
     case UPDATE_IDEA:
       console.log('UPDATE_IDEA Action')
-      const ideaIndex = state.ideas.findIndex(x => x.id === action.idea.id)
+      ideaIndex = state.ideas.findIndex(x => x.id === action.idea.id)
       ideas = update(state.ideas, {[ideaIndex]: { $set: action.idea }})
       return {ideas: ideas, editingIdeaId: action.idea.id, notification: 'Successfully saved'}
+    case DELETE_IDEA:
+      console.log('DELETE_IDEA Action')
+      ideaIndex = state.ideas.findIndex(x => x.id === action.id)
+      ideas = update(state.ideas, { $splice: [[ideaIndex, 1]]})
+      return {ideas: ideas, editingIdeaId: null, notification: 'Successfully deleted'}
     default:
       return state;
   }
 }
+
+
 
 
 

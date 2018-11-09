@@ -29,7 +29,6 @@ class IdeaForm extends Component {
     this.props.ideaActions.updateIdea(idea)
   }
 
-
   render() {
     return (
       <div className="tile">
