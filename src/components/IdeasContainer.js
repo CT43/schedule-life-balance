@@ -3,25 +3,15 @@ import axios from 'axios'
 import Idea from './Idea'
 import update from 'immutability-helper'
 import IdeaForm from './IdeaForm'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as ideaActions from '../actions/ideaActions';
+import PropTypes from 'prop-types';
 
 class IdeasContainer extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      ideas: [],
-      editingIdeaId: null,
-      notification: '',
-    }
-  }
-
   componentDidMount() {
-    axios.get('http://localhost:3001/api/v1/ideas.json')
-    .then(response => {
-      console.log(response)
-      this.setState({ideas: response.data})
-    })
-    .catch(error => console.log(error))
+    this.props.ideaActions.fetchIdeas()
   }
 
   addNewIdea = () => {
@@ -87,11 +77,11 @@ class IdeasContainer extends Component {
             New Idea
           </button>
           <span className="notification">
-            {this.state.notification}
+            {this.props.notification}
           </span>
         </div>
-        {this.state.ideas.map((idea) => {
-          if(this.state.editingIdeaId === idea.id) {
+        {this.props.ideas.map((idea) => {
+          if(this.props.editingIdeaId === idea.id) {
             return(<IdeaForm idea={idea} key={idea.id} updateIdea={this.updateIdea} resetNotification={this.resetNotification} titleRef= {input => this.title = input} />)
           } else {
             return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing} onDelete={this.deleteIdea} />)
@@ -102,4 +92,23 @@ class IdeasContainer extends Component {
   }
 }
 
-export default IdeasContainer
+IdeasContainer.propTypes = {
+    ideaActions: PropTypes.object,
+    ideas: PropTypes.array
+};
+
+function mapStateToProps(state) {
+    return {
+        ideas: state.ideas,
+        editingIdeaId: state.editingIdeaId,
+        notification: state.notification
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+       ideaActions: bindActionCreators(ideaActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IdeasContainer);

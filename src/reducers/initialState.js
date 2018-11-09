@@ -1,3 +1,5 @@
 export default {
-  ideas: []
+  ideas: [],
+  editingIdeaId: null,
+  notification: '',
 };

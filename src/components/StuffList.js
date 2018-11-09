@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as stuffActions from '../actions/stuffActions';
+import * as ideaActions from '../actions/ideaActions';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -43,13 +43,13 @@ stuffList.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        stuff: state.stuff
+        ideas: state.ideas
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-       stuffActions: bindActionCreators(stuffActions, dispatch)
+       ideaActions: bindActionCreators(ideaActions, dispatch)
     };
 }
 

@@ -10,7 +10,7 @@ class App extends Component {
         <div className="App-header">
           <h1>Idea Board</h1>
         </div>
-        <StuffList />
+        <IdeasContainer />
       </div>
     );
   }
