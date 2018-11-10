@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import IdeasContainer from './components/IdeasContainer'
 import Schedule from './components/schedule'
+import PieChart from './components/PieChart'
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
           <h1>Idea Board</h1>
         </div>
         <Schedule />
+        <PieChart />
       </div>
     );
   }
