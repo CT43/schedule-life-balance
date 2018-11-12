@@ -8,31 +8,30 @@ import PropTypes from 'prop-types';
 
 class ActivityForm extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      title: this.props.idea.title,
-      body: this.props.idea.body
+    state = {
+      name: '',
+      end_time: '',
+      start_time: '',
     }
-  }
 
   handleInput = (e) => {
     this.setState({[e.target.name]: e.target.value})
       }
 
-  handleBlur = () => {
-    const idea = {
-      title: this.state.title,
-      body: this.state.body,
-      id: this.props.editingIdeaId
+  handleSubmit = () => {
+    const activity = {
+      name: this.state.name,
+      start_time: this.state.start_time,
+      end_time: this.state.end_time,
+      schedule_id: this.props.schedule.id
     }
-    this.props.ideaActions.updateIdea(idea)
+    this.props.scheduleActions.addActivity(activity)
   }
 
   render() {
     return (
       <div className="tile">
-        <form onBlur={this.handleBlur} >
+        <form onSubmit={this.handleSubmit} >
         <input className='input' type="text"
           name="title" placeholder='Enter a Title'
           value={this.state.title} onChange={this.handleInput}
@@ -48,7 +47,7 @@ class ActivityForm extends Component {
 }
 
 ActivityForm.propTypes = {
-    ideaActions: PropTypes.object,
+    scheduleActions: PropTypes.object,
     schedule: PropTypes.array
 };
 

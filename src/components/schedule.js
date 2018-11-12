@@ -482,7 +482,6 @@ Schedule.propTypes = {
 };
 
 function mapStateToProps(state) {
-  debugger
     return {
         schedule: state.schedule.schedule,
           };

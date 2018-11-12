@@ -38,16 +38,19 @@ export function enableEditing(id) {
       }
 }
 
-export function updateIdea(idea) {
+export function addActivity(activity) {
     return (dispatch) => {
-      axios.put(
-        `http://localhost:3001/api/v1/ideas/${idea.id}`,
+      axios.post(
+        `http://localhost:3001/api/v1/activities`,
         {
-          idea: { title: `${idea.title}`,
-          body: `${idea.body}`}
+          activity: { name: `${activity.name}`,
+          start_time: activity.start_time,
+          end_time: activity.end_time,
+          schedule_id: activity.schedule_id,
+        }
         })
       .then(response => {
-        dispatch({type: 'UPDATE_IDEA', idea: response.data})
+        dispatch({type: 'ADD_ACTIVITY', activity: response.data})
       })
       .catch(error => console.log(error))
   };
