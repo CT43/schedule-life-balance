@@ -478,15 +478,13 @@ class Schedule extends Component {
 
 Schedule.propTypes = {
     scheduleActions: PropTypes.object,
-    schedules: PropTypes.array
+    schedule: PropTypes.array
 };
 
 function mapStateToProps(state) {
+  debugger
     return {
-        ideas: state.ideas.ideas,
-        editingIdeaId: state.ideas.editingIdeaId,
-        notification: state.ideas.notification,
-        schedule: state.schedule,
+        schedule: state.schedule.schedule,
           };
 }
 
