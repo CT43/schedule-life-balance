@@ -3,6 +3,7 @@ import './App.css'
 import IdeasContainer from './components/IdeasContainer'
 import Schedule from './components/Schedule'
 import PieChart from './components/PieChart'
+import NewSchedule from './components/NewSchedule'
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <div className="App-header">
           <h1>Idea Board</h1>
         </div>
+        <NewSchedule />
         <Schedule />
         <PieChart />
       </div>
