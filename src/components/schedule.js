@@ -389,7 +389,7 @@ class Schedule extends Component {
 
   render () {
     return(
-      <div classNameName="schedule">
+      <div className="schedule">
       <br />
       <div className="cd-schedule loading">
       	<div className="timeline">

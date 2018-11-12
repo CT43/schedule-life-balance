@@ -11,7 +11,7 @@ class PieChart extends Component {
 		var colors = ['#43A19E', '#7B43A1', '#F2317A', '#FF9824', '#58CF6C'];
 
 		return (
-		<div>
+		<div className="center">
 			<Pie
 				data={ this.state.data }
 				radius={ 150 }
