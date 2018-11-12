@@ -391,7 +391,6 @@ class Schedule extends Component {
     return(
       <div className="schedule">
       <br />
-      <p class="codyhouse">link to the site of Codyhouse: <a href="https://codyhouse.co/gem/schedule-template/">https://codyhouse.co/gem/schedule-template/</a></p>
       <div class="cd-schedule loading">
       	<div class="timeline">
       		<ul>

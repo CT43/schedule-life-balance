@@ -22,32 +22,6 @@ class PieChart extends Component {
 				strokeWidth={ 3 }
 				stroke={ '#fff' }
 			/>
-
-			<Pie
-				data={ this.state.data }
-				radius={ 80 }
-				hole={ 5 }
-				colors={ colors }
-				strokeWidth={ 3 }
-        labels={ true }
-			/>
-
-			<Pie
-				data={ this.state.data }
-				radius={ 80 }
-				hole={ 65 }
-				colors={ colors }
-				strokeWidth={ 1 }
-			/>
-
-			<Pie
-				data={ this.state.data }
-				radius={ 150 }
-				hole={ 0 }
-				colors={ colors }
-				strokeWidth={ 1 }
-				stroke={ 'rgba(0, 0, 0, .5)' }
-			/>
 		</div>
 		);
 	}
