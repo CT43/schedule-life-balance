@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import ideas from './ideaReducer';
-import schedules from './scheduleReducer';
+import schedule from './scheduleReducer';
 
 const rootReducer = combineReducers({
   ideas: ideas,
-  schedules: schedules
+  schedule: schedule
 });
 
 export default rootReducer;

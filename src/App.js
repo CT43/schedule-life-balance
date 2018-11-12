@@ -13,7 +13,8 @@ class App extends Component {
           <h1>Idea Board</h1>
         </div>
         <NewSchedule />
-        <div><p><Schedule /> <PieChart /></p></div>
+        <Schedule />
+        <PieChart />
       </div>
     );
   }

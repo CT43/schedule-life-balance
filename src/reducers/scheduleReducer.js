@@ -6,11 +6,11 @@ export default function schedules(state = {
   ideas: [],
   editingIdeaId: null,
   notification: '',
-  schedules: []
+  schedule: {}
 }, action) {
   let newState;
   let ideas;
-  let schedules;
+  let schedule;
   let ideaIndex
   switch (action.type) {
     case FETCH_IDEAS:
@@ -22,10 +22,10 @@ export default function schedules(state = {
       return {ideas: action.ideas, editingIdeaId: null, notification: ''}
     case ADD_IDEA:
       console.log('ADD_SCHEDULES Action')
-      schedules = update(state.schedules, {
+      schedule = update(state.schedule, {
         $splice: [[0, 0, action.schedule]]
       })
-      return {ideas: ideas, editingIdeaId: action.idea.id, notification: '', schedules: schedules}
+      return {ideas: ideas, editingIdeaId: action.idea.id, notification: '', schedule: schedule}
     case ENABLE_EDITING:
       console.log('ENABLE_EDITING Action')
       return {...state, editingIdeaId: action.id, notification: ''}

@@ -56,7 +56,7 @@ function mapStateToProps(state) {
         ideas: state.ideas.ideas,
         editingIdeaId: state.ideas.editingIdeaId,
         notification: state.ideas.notification,
-        schedules: state.schedules.schedules,
+        schedule: state.schedule.schedule,
           };
 }
 

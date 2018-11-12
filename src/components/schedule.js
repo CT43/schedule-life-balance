@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import jQuery from "jquery"
+import axios from 'axios'
+import update from 'immutability-helper'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as scheduleActions from '../actions/scheduleActions';
+import PropTypes from 'prop-types';
 
 class Schedule extends Component {
 
@@ -419,7 +425,7 @@ class Schedule extends Component {
       	<div className="events">
       		<ul>
       			<li className="events-group">
-      				<div className="top-info"><span>Monday</span></div>
+      				<div className="top-info"><span>{this.props.schedule.id}</span></div>
 
       				<ul>
       					<li className="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
@@ -470,4 +476,24 @@ class Schedule extends Component {
   }
 }
 
-export default Schedule
+Schedule.propTypes = {
+    scheduleActions: PropTypes.object,
+    schedules: PropTypes.array
+};
+
+function mapStateToProps(state) {
+    return {
+        ideas: state.ideas.ideas,
+        editingIdeaId: state.ideas.editingIdeaId,
+        notification: state.ideas.notification,
+        schedule: state.schedule,
+          };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+       scheduleActions: bindActionCreators(scheduleActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule);
