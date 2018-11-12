@@ -1,14 +1,16 @@
 import initialState from './initialState';
 import update from 'immutability-helper'
-import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION} from '../actions/allActions';
+import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE} from '../actions/allActions';
 
-export default function ideas(state = {
+export default function schedules(state = {
   ideas: [],
   editingIdeaId: null,
-  notification: ''
+  notification: '',
+  schedules: []
 }, action) {
   let newState;
   let ideas;
+  let schedules;
   let ideaIndex
   switch (action.type) {
     case FETCH_IDEAS:
@@ -19,11 +21,11 @@ export default function ideas(state = {
       console.log('RECEIVE_IDEAS Action')
       return {ideas: action.ideas, editingIdeaId: null, notification: ''}
     case ADD_IDEA:
-      console.log('ADD_IDEAS Action')
-      ideas = update(state.ideas, {
-        $splice: [[0, 0, action.idea]]
+      console.log('ADD_SCHEDULES Action')
+      schedules = update(state.schedules, {
+        $splice: [[0, 0, action.schedule]]
       })
-      return {ideas: ideas, editingIdeaId: action.idea.id, notification: ''}
+      return {ideas: ideas, editingIdeaId: action.idea.id, notification: '', schedules: schedules}
     case ENABLE_EDITING:
       console.log('ENABLE_EDITING Action')
       return {...state, editingIdeaId: action.id, notification: ''}

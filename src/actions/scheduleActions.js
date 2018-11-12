@@ -16,16 +16,16 @@ export function fetchIdeas() {
 export function addNewSchedule() {
     return (dispatch) => {
       axios.post(
-        'http://localhost:3001/api/v1/ideas',
-        { idea:
+        'http://localhost:3001/api/v1/schedules',
+        { schedule:
           {
             title: '',
-            body: ''
+            date: ''
           }
         }
       )
       .then(response => {
-        dispatch({type: 'ADD_IDEA', idea: response.data})
+        dispatch({type: 'ADD_SCHEDULE', schedule: response.data})
 
       })
       .catch(error => console.log(error))

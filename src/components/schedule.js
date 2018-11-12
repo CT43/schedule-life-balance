@@ -72,7 +72,7 @@ class Schedule extends Component {
 
 		this.singleEvents.each(function(){
 			//create the .event-date element for each event
-			var durationLabel = '<span class="event-date">'+$(this).data('start')+' - '+$(this).data('end')+'</span>';
+			var durationLabel = '<span className="event-date">'+$(this).data('start')+' - '+$(this).data('end')+'</span>';
 			$(this).children('a').prepend($(durationLabel));
 
 			//detect click on the event and open the modal
@@ -389,10 +389,10 @@ class Schedule extends Component {
 
   render () {
     return(
-      <div className="schedule">
+      <div classNameName="schedule">
       <br />
-      <div class="cd-schedule loading">
-      	<div class="timeline">
+      <div className="cd-schedule loading">
+      	<div className="timeline">
       		<ul>
       			<li><span>09:00</span></li>
       			<li><span>09:30</span></li>
@@ -416,141 +416,141 @@ class Schedule extends Component {
       		</ul>
       	</div>
 
-      	<div class="events">
+      	<div className="events">
       		<ul>
-      			<li class="events-group">
-      				<div class="top-info"><span>Monday</span></div>
+      			<li className="events-group">
+      				<div className="top-info"><span>Monday</span></div>
 
       				<ul>
-      					<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
+      					<li className="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
       						<a href="#0">
-      							<em class="event-name">Event 1</em>
+      							<em className="event-name">Event 1</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
+      					<li className="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
-      							<em class="event-name">Event 2</em>
+      							<em className="event-name">Event 2</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
+      					<li className="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
       						<a href="#0">
-      							<em class="event-name">Event 3</em>
+      							<em className="event-name">Event 3</em>
       						</a>
       					</li>
       				</ul>
       			</li>
 
-      			<li class="events-group">
-      				<div class="top-info"><span>Tuesday</span></div>
+      			<li className="events-group">
+      				<div className="top-info"><span>Tuesday</span></div>
 
       				<ul>
-      					<li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
+      					<li className="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
-      							<em class="event-name">Hola</em>
+      							<em className="event-name">Hola</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="11:30" data-end="13:00"  data-content="event-restorative-yoga" data-event="event-4">
+      					<li className="single-event" data-start="11:30" data-end="13:00"  data-content="event-restorative-yoga" data-event="event-4">
       						<a href="#0">
-      							<em class="event-name">Me llamo senor bean dip</em>
+      							<em className="event-name">Me llamo senor bean dip</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="13:30" data-end="15:00" data-content="event-abs-circuit" data-event="event-1">
+      					<li className="single-event" data-start="13:30" data-end="15:00" data-content="event-abs-circuit" data-event="event-1">
       						<a href="#0">
-      							<em class="event-name">Howdy</em>
+      							<em className="event-name">Howdy</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
+      					<li className="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
       						<a href="#0">
-      							<em class="event-name">boo</em>
+      							<em className="event-name">boo</em>
       						</a>
       					</li>
       				</ul>
       			</li>
 
-      			<li class="events-group">
-      				<div class="top-info"><span>Wednesday</span></div>
+      			<li className="events-group">
+      				<div className="top-info"><span>Wednesday</span></div>
 
       				<ul>
-      					<li class="single-event" data-start="09:00" data-end="10:15" data-content="event-restorative-yoga" data-event="event-4">
+      					<li className="single-event" data-start="09:00" data-end="10:15" data-content="event-restorative-yoga" data-event="event-4">
       						<a href="#0">
-      							<em class="event-name">Me llamo senor bean dip</em>
+      							<em className="event-name">Me llamo senor bean dip</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3">
+      					<li className="single-event" data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3">
       						<a href="#0">
-      							<em class="event-name">boo</em>
+      							<em className="event-name">boo</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="12:00" data-end="13:45"  data-content="event-rowing-workout" data-event="event-2">
+      					<li className="single-event" data-start="12:00" data-end="13:45"  data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
-      							<em class="event-name">Hola</em>
+      							<em className="event-name">Hola</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3">
+      					<li className="single-event" data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3">
       						<a href="#0">
-      							<em class="event-name">boo</em>
+      							<em className="event-name">boo</em>
       						</a>
       					</li>
       				</ul>
       			</li>
 
-      			<li class="events-group">
-      				<div class="top-info"><span>Thursday</span></div>
+      			<li className="events-group">
+      				<div className="top-info"><span>Thursday</span></div>
 
       				<ul>
-      					<li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
+      					<li className="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
       						<a href="#0">
-      							<em class="event-name">Howdy</em>
+      							<em className="event-name">Howdy</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="12:00" data-end="13:45" data-content="event-restorative-yoga" data-event="event-4">
+      					<li className="single-event" data-start="12:00" data-end="13:45" data-content="event-restorative-yoga" data-event="event-4">
       						<a href="#0">
-      							<em class="event-name">Me llamo senor bean dip</em>
+      							<em className="event-name">Me llamo senor bean dip</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="15:30" data-end="16:30" data-content="event-abs-circuit" data-event="event-1">
+      					<li className="single-event" data-start="15:30" data-end="16:30" data-content="event-abs-circuit" data-event="event-1">
       						<a href="#0">
-      							<em class="event-name">Howdy</em>
+      							<em className="event-name">Howdy</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="17:00" data-end="18:30"  data-content="event-rowing-workout" data-event="event-2">
+      					<li className="single-event" data-start="17:00" data-end="18:30"  data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
-      							<em class="event-name">Hola</em>
+      							<em className="event-name">Hola</em>
       						</a>
       					</li>
       				</ul>
       			</li>
 
-      			<li class="events-group">
-      				<div class="top-info"><span>Friday</span></div>
+      			<li className="events-group">
+      				<div className="top-info"><span>Friday</span></div>
 
       				<ul>
-      					<li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
+      					<li className="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
-      							<em class="event-name">Hola</em>
+      							<em className="event-name">Hola</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
+      					<li className="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
       						<a href="#0">
-      							<em class="event-name">Howdy</em>
+      							<em className="event-name">Howdy</em>
       						</a>
       					</li>
 
-      					<li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
+      					<li className="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
       						<a href="#0">
-      							<em class="event-name">boo</em>
+      							<em className="event-name">boo</em>
       						</a>
       					</li>
       				</ul>
@@ -558,25 +558,25 @@ class Schedule extends Component {
       		</ul>
       	</div>
 
-      	<div class="event-modal">
-      		<header class="header">
-      			<div class="content">
-      				<span class="event-date"></span>
-      				<h3 class="event-name"></h3>
+      	<div className="event-modal">
+      		<header className="header">
+      			<div className="content">
+      				<span className="event-date"></span>
+      				<h3 className="event-name"></h3>
       			</div>
 
-      			<div class="header-bg"></div>
+      			<div className="header-bg"></div>
       		</header>
 
-      		<div class="body">
-      			<div class="event-info"></div>
-      			<div class="body-bg"></div>
+      		<div className="body">
+      			<div className="event-info"></div>
+      			<div className="body-bg"></div>
       		</div>
 
-      		<a href="#0" class="close">Close</a>
+      		<a href="#0" className="close">Close</a>
       	</div>
 
-      	<div class="cover-layer"></div>
+      	<div className="cover-layer"></div>
       </div>
 
       </div>

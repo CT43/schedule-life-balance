@@ -3,7 +3,7 @@ import axios from 'axios'
 import update from 'immutability-helper'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as ideaActions from '../actions/ideaActions';
+import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 
 class NewSchedule extends Component {
@@ -13,7 +13,7 @@ class NewSchedule extends Component {
   // }
 
   addNewSchedule = () => {
-    this.props.ideaActions.addNewIdea()
+    this.props.scheduleActions.addNewSchedule()
   }
 
 
@@ -47,21 +47,22 @@ class NewSchedule extends Component {
 }
 
 NewSchedule.propTypes = {
-    ideaActions: PropTypes.object,
-    ideas: PropTypes.array
+    scheduleActions: PropTypes.object,
+    schedules: PropTypes.array
 };
 
 function mapStateToProps(state) {
     return {
         ideas: state.ideas.ideas,
         editingIdeaId: state.ideas.editingIdeaId,
-        notification: state.ideas.notification
+        notification: state.ideas.notification,
+        schedules: state.schedules.schedules,
           };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-       ideaActions: bindActionCreators(ideaActions, dispatch)
+       scheduleActions: bindActionCreators(scheduleActions, dispatch)
     };
 }
 
