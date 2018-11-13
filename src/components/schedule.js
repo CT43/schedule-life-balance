@@ -109,10 +109,7 @@ class Schedule extends Component {
 			var eventTop = self.eventSlotHeight*(start - self.timelineStart)/self.timelineUnitDuration,
 				eventHeight = self.eventSlotHeight*duration/self.timelineUnitDuration;
 
-			$(this).css({
-				top: (eventTop -1) +'px',
-				height: (eventHeight+1)+'px'
-			});
+;
 		});
 
 		this.element.removeClass('loading');
@@ -394,6 +391,18 @@ class Schedule extends Component {
 });
   }
 
+  durationCalculator(time) {
+    debugger
+    let hour
+    let min
+    let totalMin
+    let ints;
+    ints = time.split(':')
+    hour = parseInt(ints['0'])
+    min = parseInt(ints['1'])
+    return (hour * 60 + min)
+  }
+
   render () {
 
     return(
@@ -403,6 +412,8 @@ class Schedule extends Component {
       	<div className="timeline">
       		<ul>
             <li><span>00:00</span></li>
+            <li><span>00:30</span></li>
+            <li><span>01:00</span></li>  
       			<li><span>01:30</span></li>
       			<li><span>02:00</span></li>
       			<li><span>02:30</span></li>
@@ -459,7 +470,19 @@ class Schedule extends Component {
 
       				<ul>
                 {this.props.activities.map((activity) => {
-                    return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event="event-2" style={{top: '20px', height: '200px'}}>
+                  let startMin;
+                  let endMin;
+                  let duration;
+                  let pxTop;
+                  let pxHeight;
+                  startMin = this.durationCalculator(activity.start_time)
+                  endMin = this.durationCalculator(activity.end_time)
+                  duration = endMin - startMin
+                  pxTop = `${startMin/1.5}px`
+                  pxHeight = `${duration/1.5}px`
+
+                  debugger
+                    return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event="event-2" style={{top: `${pxTop}`, height: `${pxHeight}`}}>
                   						<a href="#0">
                   							<em className="event-name">Event 2</em>
                   						</a>
