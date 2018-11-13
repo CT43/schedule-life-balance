@@ -41,8 +41,8 @@ class ActivityForm extends Component {
             value={this.state.start_time} onChange={this.handleInput}>
           </input>
           <input type="time" className='input' name="end_time"
-            value={this.state.end_time} onChange={this.handleInput}>
-          </input>
+            value={this.state.end_time} onChange={this.handleInput} />
+
           <input type="submit" />
         </form>
       </div>
