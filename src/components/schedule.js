@@ -11,7 +11,6 @@ import Activity from './Activity';
 class Schedule extends Component {
 
   componentDidMount() {
-  this.props.scheduleActions.fetchSchedule()
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 	var transitionsSupported = ( $('.csstransitions').length > 0 );
@@ -431,6 +430,9 @@ class Schedule extends Component {
 
       				<ul>
                 <Activity />
+                {this.props.activities.map((activity) => {
+                    return (<Activity activity={activity} key={activity.id} />
+                )})}
 
       					<li className="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
@@ -480,7 +482,9 @@ Schedule.propTypes = {
 };
 
 function mapStateToProps(state) {
+  debugger
     return {
+        activities: state.schedule.activities,
         schedule: state.schedule.schedule,
           };
 }

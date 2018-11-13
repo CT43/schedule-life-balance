@@ -18,7 +18,8 @@ class ActivityForm extends Component {
     this.setState({[e.target.name]: e.target.value})
       }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault()
     const activity = {
       name: this.state.name,
       start_time: this.state.start_time,
