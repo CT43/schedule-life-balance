@@ -51,7 +51,7 @@ class ActivityForm extends Component {
 
 ActivityForm.propTypes = {
     scheduleActions: PropTypes.object,
-    schedule: PropTypes.array
+    schedule: PropTypes.object
 };
 
 function mapStateToProps(state) {

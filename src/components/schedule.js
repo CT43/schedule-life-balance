@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 class Schedule extends Component {
 
   componentDidMount() {
+  this.props.scheduleActions.fetchSchedule()
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 	var transitionsSupported = ( $('.csstransitions').length > 0 );
@@ -478,10 +479,11 @@ class Schedule extends Component {
 
 Schedule.propTypes = {
     scheduleActions: PropTypes.object,
-    schedule: PropTypes.array
+    schedule: PropTypes.object
 };
 
 function mapStateToProps(state) {
+  debugger
     return {
         schedule: state.schedule.schedule,
           };

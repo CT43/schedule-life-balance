@@ -3,11 +3,11 @@ import axios from 'axios'
 import update from 'immutability-helper'
 
 
-export function fetchIdeas() {
+export function fetchSchedule() {
     return (dispatch) => {
-    axios.get('http://localhost:3001/api/v1/ideas.json')
+    axios.get('http://localhost:3001/api/v1/schedule/1')
     .then(response => {
-      dispatch({type: 'RECEIVE_IDEAS', ideas: response.data})
+      dispatch({type: 'RECEIVE_SCHEDULE', schedule: response.data})
     })
     .catch(error => console.log(error))
   };
@@ -43,7 +43,8 @@ export function addActivity(activity) {
       axios.post(
         `http://localhost:3001/api/v1/activities`,
         {
-          activity: { name: `${activity.name}`,
+          activity:
+            { name: `${activity.name}`,
           start_time: activity.start_time,
           end_time: activity.end_time,
           schedule_id: activity.schedule_id,
