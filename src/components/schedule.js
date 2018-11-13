@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
+import Activity from './Activity';
 
 class Schedule extends Component {
 
@@ -429,11 +430,7 @@ class Schedule extends Component {
       				<div className="top-info"><span>{this.props.schedule.id}</span></div>
 
       				<ul>
-      					<li className="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-      						<a href="#0">
-      							<em className="event-name">Event 1</em>
-      						</a>
-      					</li>
+                <Activity />
 
       					<li className="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
       						<a href="#0">
