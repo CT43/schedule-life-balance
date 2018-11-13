@@ -10,7 +10,7 @@ import Activity from './Activity';
 
 class Schedule extends Component {
 
-  componentDidMount() {
+  componentDidUpdate() {
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 	var transitionsSupported = ( $('.csstransitions').length > 0 );
@@ -395,12 +395,29 @@ class Schedule extends Component {
   }
 
   render () {
+
     return(
       <div className="schedule">
       <br />
       <div className="cd-schedule loading">
       	<div className="timeline">
       		<ul>
+            <li><span>00:00</span></li>
+      			<li><span>01:30</span></li>
+      			<li><span>02:00</span></li>
+      			<li><span>02:30</span></li>
+      			<li><span>03:00</span></li>
+      			<li><span>03:30</span></li>
+      			<li><span>04:00</span></li>
+      			<li><span>04:30</span></li>
+      			<li><span>05:00</span></li>
+      			<li><span>05:30</span></li>
+      			<li><span>06:00</span></li>
+      			<li><span>06:30</span></li>
+      			<li><span>07:00</span></li>
+      			<li><span>07:30</span></li>
+      			<li><span>08:00</span></li>
+      			<li><span>08:30</span></li>
       			<li><span>09:00</span></li>
       			<li><span>09:30</span></li>
       			<li><span>10:00</span></li>
@@ -420,6 +437,18 @@ class Schedule extends Component {
       			<li><span>17:00</span></li>
       			<li><span>17:30</span></li>
       			<li><span>18:00</span></li>
+      			<li><span>18:30</span></li>
+      			<li><span>19:00</span></li>
+      			<li><span>19:30</span></li>
+      			<li><span>20:00</span></li>
+      			<li><span>20:30</span></li>
+      			<li><span>21:00</span></li>
+      			<li><span>21:30</span></li>
+      			<li><span>22:00</span></li>
+      			<li><span>22:30</span></li>
+      			<li><span>23:00</span></li>
+      			<li><span>23:30</span></li>
+      			<li><span>24:00</span></li>
       		</ul>
       	</div>
 
@@ -429,22 +458,13 @@ class Schedule extends Component {
       				<div className="top-info"><span>{this.props.schedule.id}</span></div>
 
       				<ul>
-                <Activity />
                 {this.props.activities.map((activity) => {
-                    return (<Activity activity={activity} key={activity.id} } />
+                    return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event="event-2" style={{top: '20px', height: '200px'}}>
+                  						<a href="#0">
+                  							<em className="event-name">Event 2</em>
+                  						</a>
+                  					</li>
                 )})}
-
-      					<li className="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
-      						<a href="#0">
-      							<em className="event-name">Event 2</em>
-      						</a>
-      					</li>
-
-      					<li className="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
-      						<a href="#0">
-      							<em className="event-name">Event 3</em>
-      						</a>
-      					</li>
       				</ul>
       			</li>
       		</ul>

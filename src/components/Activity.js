@@ -12,12 +12,15 @@ class Activity extends Component {
 
 
   render () {
+    debugger
     return(
-      <li className="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
+      <div>
+      <li className="single-event" data-start={this.props.activity.start_time} data-end={this.props.activity.end_time} data-content="event-abs-circuit" data-event="event-1">
         <a href="#0">
           <em className="event-name">Event 1</em>
         </a>
       </li>
+      </div>
     )
   }
 }
