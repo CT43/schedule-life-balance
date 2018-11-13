@@ -431,7 +431,7 @@ class Schedule extends Component {
       				<ul>
                 <Activity />
                 {this.props.activities.map((activity) => {
-                    return (<Activity activity={activity} key={activity.id} />
+                    return (<Activity activity={activity} key={activity.id} } />
                 )})}
 
       					<li className="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
@@ -482,7 +482,6 @@ Schedule.propTypes = {
 };
 
 function mapStateToProps(state) {
-  debugger
     return {
         activities: state.schedule.activities,
         schedule: state.schedule.schedule,
