@@ -14,6 +14,18 @@ class ActivityForm extends Component {
       start_time: '',
     }
 
+    durationCalculator(time) {
+      debugger
+      let hour
+      let min
+      let totalMin
+      let ints;
+      ints = time.split(':')
+      hour = parseInt(ints['0'])
+      min = parseInt(ints['1'])
+      return (hour * 60 + min)
+    }
+
   handleInput = (e) => {
     this.setState({[e.target.name]: e.target.value})
       }
@@ -24,7 +36,9 @@ class ActivityForm extends Component {
       name: this.state.name,
       start_time: this.state.start_time,
       end_time: this.state.end_time,
-      schedule_id: this.props.schedule.id
+      schedule_id: this.props.schedule.id,
+      start_time_min: this.durationCalculator(this.state.start_time),
+      end_time_min: this.durationCalculator(this.state.end_time),
     }
     this.props.scheduleActions.addActivity(activity)
   }

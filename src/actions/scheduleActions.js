@@ -48,6 +48,8 @@ export function addActivity(activity) {
           start_time: activity.start_time,
           end_time: activity.end_time,
           schedule_id: activity.schedule_id,
+          start_time_min: activity.start_time_min,
+          end_time_min: activity.end_time_min,
         }
         })
       .then(response => {
