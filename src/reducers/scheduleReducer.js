@@ -4,10 +4,13 @@ import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_E
 
 export default function schedules(state = {
   schedule: {},
+  activities: [],
 }, action) {
   let newState;
   let ideas;
   let schedule;
+  let activity;
+  let activities
   let ideaIndex
   switch (action.type) {
     // case FETCH_IDEAS:
@@ -20,7 +23,13 @@ export default function schedules(state = {
     case ADD_SCHEDULE:
       console.log('ADD_SCHEDULES Action')
       schedule = action.schedule
-      return {schedule: schedule}
+      return {...state, schedule: schedule}
+    case ADD_ACTIVITY:
+      console.log('ADD_ACTIVITY Action')
+      activities = update(state.activities, {
+        $splice: [[0, 0, action.activity]]
+      })
+      return {...state, activites: activities}
     // case ENABLE_EDITING:
     //   console.log('ENABLE_EDITING Action')
     //   return {...state, editingIdeaId: action.id, notification: ''}

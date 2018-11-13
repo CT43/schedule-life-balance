@@ -33,13 +33,16 @@ class ActivityForm extends Component {
       <div className="tile">
         <form onSubmit={this.handleSubmit} >
         <input className='input' type="text"
-          name="title" placeholder='Enter a Title'
+          name="name" placeholder='Enter an activity'
           value={this.state.title} onChange={this.handleInput}
           ref={this.props.titleRef} />
-          <textarea className='input' name="body"
-            placeholder='Describe your idea'
-            value={this.state.body} onChange={this.handleInput}>
-          </textarea>
+          <input type="time" className='input' name="start_time"
+            value={this.state.start_time} onChange={this.handleInput}>
+          </input>
+          <input type="time" className='input' name="end_time"
+            value={this.state.end_time} onChange={this.handleInput}>
+          </input>
+          <input type="submit" />
         </form>
       </div>
     );
