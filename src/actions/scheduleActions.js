@@ -4,6 +4,7 @@ import update from 'immutability-helper'
 
 
 export function fetchSchedule(id) {
+  debugger
     return (dispatch) => {
     axios.get(`http://localhost:3001/api/v1/schedule/${id}`)
     .then(response => {

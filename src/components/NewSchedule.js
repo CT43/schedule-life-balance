@@ -16,7 +16,8 @@ class NewSchedule extends Component {
     id: '',
   }
 
-  addNewSchedule = () => {
+  addNewSchedule = (e) => {
+    e.preventDefault()
     this.props.scheduleActions.addNewSchedule()
   }
 

@@ -6,7 +6,7 @@ export default function schedules(state = {
   schedule: {},
   activities: [],
 }, action) {
-  let newState;
+  let newSchedule;
   let ideas;
   let schedule;
   let activity;
@@ -17,13 +17,15 @@ export default function schedules(state = {
       console.log('FETCH_SCHEDULE Action')
       return action;
     case RECEIVE_SCHEDULE:
-      newState = action.schedule;
+    debugger
+      newSchedule = action.schedule;
+      activities = state.activities.filter(activity => activity.schedule_id === newSchedule.id)
       console.log('RECEIVE_SCHEDULE Action')
-      return {activities: state.activities, schedule: newState}
+      return {activities: activities, schedule: newSchedule}
     case ADD_SCHEDULE:
       console.log('ADD_SCHEDULES Action')
       schedule = action.schedule
-      return { schedule: schedule, activities: state.activities}
+      return { schedule: schedule, activities: []}
     case ADD_ACTIVITY:
       console.log('ADD_ACTIVITY Action')
       activities = update(state.activities, {
