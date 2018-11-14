@@ -12,8 +12,24 @@ class NewSchedule extends Component {
   //   this.props.ideaActions.fetchIdeas()
   // }
 
+  state = {
+    id: '',
+  }
+
   addNewSchedule = () => {
     this.props.scheduleActions.addNewSchedule()
+  }
+
+  handleInput = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit = (e) => {
+    debugger
+    e.preventDefault()
+    let id;
+    id = this.state.id
+    this.props.scheduleActions.fetchSchedule(id)
   }
 
 
@@ -36,6 +52,12 @@ class NewSchedule extends Component {
     }else{
     return (
       <div>
+        <form onSubmit={this.handleSubmit} >
+        <input className='input' type="text"
+          name="id" placeholder='Enter an id'
+          value={this.state.id} onChange={this.handleInput} />
+          <input type="submit" />
+        </form>
         <button className="newIdeaButton"
           onClick={this.addNewSchedule} >
           New Daily Schedule

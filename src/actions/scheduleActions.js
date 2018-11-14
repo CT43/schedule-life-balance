@@ -3,9 +3,9 @@ import axios from 'axios'
 import update from 'immutability-helper'
 
 
-export function fetchSchedule() {
+export function fetchSchedule(id) {
     return (dispatch) => {
-    axios.get('http://localhost:3001/api/v1/schedule/1')
+    axios.get(`http://localhost:3001/api/v1/schedule/${id}`)
     .then(response => {
       dispatch({type: 'RECEIVE_SCHEDULE', schedule: response.data})
     })
