@@ -13,6 +13,16 @@ export function fetchSchedule(id) {
     .catch(error => console.log(error))
   };
 }
+export function fetchScheduleActivities(id) {
+  debugger
+    return (dispatch) => {
+    axios.get(`http://localhost:3001/api/v1/activity/${id}`)
+    .then(response => {
+      dispatch({type: 'RECEIVE_ACTIVITIES', activities: response.data})
+    })
+    .catch(error => console.log(error))
+  };
+}
 
 export function addNewSchedule() {
     return (dispatch) => {

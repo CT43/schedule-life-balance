@@ -30,6 +30,7 @@ class NewSchedule extends Component {
     e.preventDefault()
     let id;
     id = this.state.id
+    this.props.scheduleActions.fetchScheduleActivities(id)
     this.props.scheduleActions.fetchSchedule(id)
   }
 

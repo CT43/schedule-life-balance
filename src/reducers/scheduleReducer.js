@@ -1,6 +1,6 @@
 import initialState from './initialState';
 import update from 'immutability-helper'
-import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE, ADD_ACTIVITY, FETCH_SCHEDULE, RECEIVE_SCHEDULE} from '../actions/allActions';
+import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE, ADD_ACTIVITY, FETCH_SCHEDULE, RECEIVE_SCHEDULE, RECEIVE_ACTIVITIES} from '../actions/allActions';
 
 export default function schedules(state = {
   schedule: {},
@@ -19,9 +19,13 @@ export default function schedules(state = {
     case RECEIVE_SCHEDULE:
     debugger
       newSchedule = action.schedule;
-      activities = state.activities.filter(activity => activity.schedule_id === newSchedule.id)
       console.log('RECEIVE_SCHEDULE Action')
-      return {activities: activities, schedule: newSchedule}
+      return {activities: state.activities, schedule: newSchedule}
+    case RECEIVE_ACTIVITIES:
+    debugger
+      activities = action.activities
+      console.log('RECEIVE_ACTIVITIES Action')
+      return {activities: activities, schedule: state.schedule}
     case ADD_SCHEDULE:
       console.log('ADD_SCHEDULES Action')
       schedule = action.schedule
