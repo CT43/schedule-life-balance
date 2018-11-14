@@ -7,6 +7,7 @@ class Pie extends Component {
 	render() {
 		var colors = this.props.colors,
 			colorsLength = colors.length,
+			names = this.props.names,
 			labels = this.props.labels,
 			hole = this.props.hole,
 			radius = this.props.radius,
@@ -30,6 +31,7 @@ class Pie extends Component {
 
 					return <Slice
 						key={ sliceIndex }
+						id={ sliceIndex }
 						value={ slice }
 						percent={ self.props.percent }
 						percentValue={ percent.toFixed(1) }
@@ -42,6 +44,7 @@ class Pie extends Component {
 						fill={ colors[sliceIndex % colorsLength] }
 						stroke={ self.props.stroke }
 						strokeWidth={ self.props.strokeWidth }
+						names={names}
 					/>
 				}) }
 

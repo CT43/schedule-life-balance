@@ -23,6 +23,7 @@ class PieChart extends Component {
 				hole={ 50 }
 				colors={ colors }
 				labels={ true }
+				names={ this.props.activityNames }
 				percent={ true }
 				strokeWidth={ 3 }
 				stroke={ '#fff' }
@@ -47,11 +48,14 @@ function mapStateToProps(state) {
 	let actdata = []
 	state.schedule.activities.forEach(function(activity){
 			actdata.push(activity.duration_min)})
-			debugger
+	let actnames = []
+	state.schedule.activities.forEach(function(activity){
+			actnames.push(activity.name)})
     return {
         activities: state.schedule.activities,
         schedule: state.schedule.schedule,
-				activityData: actdata
+				activityData: actdata,
+				activityNames: actnames
 
           };
 }

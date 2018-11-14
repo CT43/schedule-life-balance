@@ -75,7 +75,6 @@ class Slice extends Component {
 
 	render() {
 
-
 		return (
 			<g overflow="hidden">
 				<path
@@ -87,6 +86,7 @@ class Slice extends Component {
 				{ this.props.showLabel && this.props.percentValue > 5 ?
 					<text x={ this.state.x } y={ this.state.y } fill="#fff" textAnchor="middle">
 						{ this.props.percent ? this.props.percentValue + '%' : this.props.value }
+						{ this.props.names[`${this.props.id}`]}
 					</text>
 				: null }
 			</g>
