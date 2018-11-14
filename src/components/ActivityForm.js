@@ -15,7 +15,6 @@ class ActivityForm extends Component {
     }
 
     durationCalculator(time) {
-      debugger
       let hour
       let min
       let totalMin
