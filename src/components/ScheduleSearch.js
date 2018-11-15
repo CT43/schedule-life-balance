@@ -3,17 +3,8 @@ import * as scheduleActions from '../actions/scheduleActions';
 
 class ScheduleSearch extends Component {
 
-  // componentDidMount() {
-  //   this.props.ideaActions.fetchIdeas()
-  // }
-
   state = {
     id: '',
-  }
-
-  addNewSchedule = (e) => {
-    e.preventDefault()
-    this.props.scheduleActions.addNewSchedule()
   }
 
   handleInput = (e) => {
