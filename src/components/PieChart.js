@@ -12,7 +12,7 @@ import Activity from './Activity';
 class PieChart extends Component {
 
 	render() {
-		var colors = ['#43A19E', '#7B43A1', '#F2317A', '#FF9824', '#58CF6C'];
+		var colors = ['white', '#43A19E', '#7B43A1', '#F2317A', '#FF9824', '#58CF6C'];
 
 		if(this.props.activities.length > 0){
 
