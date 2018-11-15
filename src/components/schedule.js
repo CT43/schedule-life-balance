@@ -7,6 +7,7 @@ import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 import Activity from './Activity';
+import Navbar from './Navbar'
 
 class Schedule extends Component {
 
