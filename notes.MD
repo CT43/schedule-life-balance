@@ -6,6 +6,7 @@ to do
   user or list selection option
   add bootstrp navbar or some outline
   delete and update options- from ideaboard
+  refactor
 
 extra feature ideas
   hour countdown bar graph for day

@@ -17,12 +17,10 @@ export default function schedules(state = {
       console.log('FETCH_SCHEDULE Action')
       return action;
     case RECEIVE_SCHEDULE:
-    debugger
       newSchedule = action.schedule;
       console.log('RECEIVE_SCHEDULE Action')
       return {activities: state.activities, schedule: newSchedule}
     case RECEIVE_ACTIVITIES:
-    debugger
       activities = action.activities
       console.log('RECEIVE_ACTIVITIES Action')
       return {activities: activities, schedule: state.schedule}

@@ -26,7 +26,6 @@ class NewSchedule extends Component {
   }
 
   handleSubmit = (e) => {
-    debugger
     e.preventDefault()
     let id;
     id = this.state.id
