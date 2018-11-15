@@ -83,7 +83,7 @@ class Slice extends Component {
 					stroke={ this.props.stroke }
 					strokeWidth={ this.props.strokeWidth ? this.props.strokeWidth : 3 }
 					 />
-				{ this.props.showLabel && this.props.percentValue > 5 ?
+				{ this.props.showLabel && this.props.percentValue > 4 ?
 					<text x={ this.state.x } y={ this.state.y } fill="#fff" textAnchor="middle">
 						{ this.props.percent ? this.props.percentValue + '%' : this.props.value }
 					</text>

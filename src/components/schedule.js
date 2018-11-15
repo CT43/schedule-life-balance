@@ -464,10 +464,8 @@ class Schedule extends Component {
                   pxTop = `${activity.start_time_min/1.5}px`
                   pxHeight = `${activity.duration_min/1.5}px`
                     return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}>
-                  						<a href="#0">
                   							<em className="event-name">{timeElement} - {activity.name}
                                 </em>
-                  						</a>
                   					</li>
                 )})}
       				</ul>
