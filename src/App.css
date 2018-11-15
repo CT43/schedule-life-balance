@@ -65,8 +65,8 @@ textarea {
   visibility: visible;
 } */
 .center {
-  float: right;
-  padding-right: 10%;
+  width: 1%;
+  padding-left: 5%;
 
 }
 
@@ -177,7 +177,7 @@ Main Components
   .cd-schedule::after {
     clear: both;
     content: "";
-    display: block;
+    display: inline-block;
   }
   .cd-schedule::before {
     content: 'desktop';
@@ -191,7 +191,7 @@ Main Components
 
 @media only screen and (min-width: 800px) {
   .cd-schedule .timeline {
-    display: block;
+    display: inline-block;
     position: absolute;
     top: 0;
     left: 0;
@@ -747,6 +747,20 @@ svg {
   display: inline-block;
   vertical-align: middle;
 	transform-origin: 50% 50%;
+	animation: scale .6s;
+  margin: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 12px;
+  }
+}
+.svg {
+  padding-left: 5%;
+  vertical-align: middle;
 	animation: scale .6s;
   margin: 10px;
   white-space: nowrap;

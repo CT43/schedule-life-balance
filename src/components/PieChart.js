@@ -18,21 +18,19 @@ class PieChart extends Component {
 
 		return (
 			<div>
-		<div className="center">
-			<Pie
-				data={ this.props.activityData }
-				radius={ 150 }
-				hole={ 50 }
-				colors={ colors }
-				labels={ true }
-				names={ this.props.activityNames }
-				percent={ true }
-				strokeWidth={ 3 }
-				stroke={ '#fff' }
-			/>
+					<Pie className="center"
+						data={ this.props.activityData }
+						radius={ 150 }
+						hole={ 50 }
+						colors={ colors }
+						labels={ true }
+						names={ this.props.activityNames }
+						percent={ true }
+						strokeWidth={ 3 }
+						stroke={ '#fff' }
+					/>
+					<Bar className="right" barData={this.props.barData} />
 			</div>
-			<Bar barData={this.props.barData} />
-		</div>
 		);
 	} else {
 	return (
