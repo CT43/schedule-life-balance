@@ -61,7 +61,7 @@ function mapStateToProps(state) {
 		}
 	}
 
-	actdata.push(day)
+	actdata.unshift(day)
 	let actnames = []
 	state.schedule.activities.forEach(function(activity){
 			actnames.push(activity.name)})

@@ -458,15 +458,15 @@ class Schedule extends Component {
                 {this.props.activities.map((activity) => {
                   eventCount += 1
                   let eventCss = `event-${eventCount}`
-                  let timeElement = `${activity.start_time} - ${activity.end_time}`
+                  let timeElement = `${activity.start_time}-${activity.end_time}`
                   let pxTop;
                   let pxHeight;
                   pxTop = `${activity.start_time_min/1.5}px`
                   pxHeight = `${activity.duration_min/1.5}px`
                     return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}>
                   						<a href="#0">
-                              <span className="event-date">{timeElement}</span>
-                  							<em className="event-name">{activity.name}</em>
+                  							<em className="event-name">{timeElement} - {activity.name}
+                                </em>
                   						</a>
                   					</li>
                 )})}

@@ -401,6 +401,7 @@ Main Components
 
 .cd-schedule .event-name,
 .cd-schedule .event-date {
+  margin-top: 0px;
   display: block;
   color: white;
   font-weight: bold;
@@ -409,12 +410,13 @@ Main Components
 }
 
 .cd-schedule .event-name {
+  margin-top: 0px;
   font-size: 2.4rem;
 }
 
 @media only screen and (min-width: 800px) {
   .cd-schedule .event-name {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
