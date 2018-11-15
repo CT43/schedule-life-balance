@@ -1,6 +1,8 @@
 steps
 
 to do
+  STOP EXPANDING FEATURES - FINISH AND MAKE IT LOOK GOOD
+  color coordinate - schedule and chart
   add categories and activity description
   do pie chart by category and 24 hour total day %s
   user or list selection option

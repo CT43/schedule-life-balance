@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Pie from './Pie'
+import Bar from './Bar'
 import axios from 'axios'
 import update from 'immutability-helper'
 import {connect} from 'react-redux';
@@ -16,6 +17,7 @@ class PieChart extends Component {
 		if(this.props.activities.length > 0){
 
 		return (
+			<div>
 		<div className="center">
 			<Pie
 				data={ this.props.activityData }
@@ -28,6 +30,8 @@ class PieChart extends Component {
 				strokeWidth={ 3 }
 				stroke={ '#fff' }
 			/>
+			</div>
+			<Bar barData={this.props.barData} />
 		</div>
 		);
 	} else {
@@ -50,16 +54,26 @@ function mapStateToProps(state) {
 	state.schedule.activities.forEach(function(activity){
 			day -= activity.duration_min
 			actdata.push(activity.duration_min)})
-	actdata.push(day)
+	let sum = 1440
+	if(actdata.length !== 0){
+	sum = actdata.reduce(add, 0);
 
+	function add(a, b) {
+    return a + b;
+		}
+	}
+
+	actdata.push(day)
 	let actnames = []
 	state.schedule.activities.forEach(function(activity){
 			actnames.push(activity.name)})
+	let barData = sum
     return {
         activities: state.schedule.activities,
         schedule: state.schedule.schedule,
 				activityData: actdata,
-				activityNames: actnames
+				activityNames: actnames,
+				barData: barData
 
           };
 }

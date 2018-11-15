@@ -1,7 +1,7 @@
-/* .App {
-  text-align: center;
-}
+.App {
 
+}
+/*
 .App-header {
   text-align: center;
   height: 150px;
@@ -169,7 +169,7 @@ Main Components
 
 @media only screen and (min-width: 800px) {
   .cd-schedule {
-    width: 50%;
+    width: 40%;
     float: left;
     max-width: 1400px;
     margin: 2em auto;
@@ -735,12 +735,22 @@ Main Components
   visibility: visible;
 }
 
+.bar {
+  fill: #d81c3f;
+}
+
+.bar:hover {
+  fill: darkgray;
+}
+
 svg {
   display: inline-block;
   vertical-align: middle;
 	transform-origin: 50% 50%;
 	animation: scale .6s;
   margin: 10px;
+  white-space: nowrap;
+  overflow: hidden;
 
   text {
     font-family: Helvetica, Arial, sans-serif;
