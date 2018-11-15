@@ -46,8 +46,12 @@ PieChart.propTypes = {
 
 function mapStateToProps(state) {
 	let actdata = []
+	let day = 1440
 	state.schedule.activities.forEach(function(activity){
+			day -= activity.duration_min
 			actdata.push(activity.duration_min)})
+	actdata.push(day)
+
 	let actnames = []
 	state.schedule.activities.forEach(function(activity){
 			actnames.push(activity.name)})

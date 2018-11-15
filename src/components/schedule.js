@@ -79,8 +79,6 @@ class Schedule extends Component {
 
 		this.singleEvents.each(function(){
 			//create the .event-date element for each event
-			var durationLabel = '<span className="event-date">'+$(this).data('start')+' - '+$(this).data('end')+'</span>';
-			$(this).children('a').prepend($(durationLabel));
 
 			//detect click on the event and open the modal
 			$(this).on('click', 'a', function(event){
@@ -392,7 +390,7 @@ class Schedule extends Component {
   }
 
   render () {
-
+    let eventCount = 0
     return(
       <div className="schedule">
       <br />
@@ -458,12 +456,16 @@ class Schedule extends Component {
 
       				<ul>
                 {this.props.activities.map((activity) => {
+                  eventCount += 1
+                  let eventCss = `event-${eventCount}`
+                  let timeElement = `${activity.start_time} - ${activity.end_time}`
                   let pxTop;
                   let pxHeight;
                   pxTop = `${activity.start_time_min/1.5}px`
                   pxHeight = `${activity.duration_min/1.5}px`
-                    return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event="event-2" style={{top: `${pxTop}`, height: `${pxHeight}`}}>
+                    return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}>
                   						<a href="#0">
+                              <span className="event-date">{timeElement}</span>
                   							<em className="event-name">{activity.name}</em>
                   						</a>
                   					</li>
