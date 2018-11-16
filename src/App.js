@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-import IdeasContainer from './components/IdeasContainer'
 import Schedule from './components/Schedule'
 import PieChart from './components/PieChart'
 import NewSchedule from './components/NewSchedule'

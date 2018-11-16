@@ -2,6 +2,15 @@
 
 }
 
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
 /*
 .App-intro {
   font-size: large;
@@ -793,7 +802,7 @@ Main Components
 }
 
 .bar {
-  fill: #d81c3f;
+  fill: black;
 }
 
 .bar:hover {

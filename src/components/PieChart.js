@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import Pie from './Pie'
-import Bar from './Bar'
-import axios from 'axios'
-import update from 'immutability-helper'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
-import Activity from './Activity';
 
 class PieChart extends Component {
 
@@ -29,7 +25,6 @@ class PieChart extends Component {
 						strokeWidth={ 3 }
 						stroke={ '#fff' }
 					/>
-					<Bar className="right" barData={this.props.barData} />
 			</div>
 		);
 	} else {
@@ -60,7 +55,6 @@ function mapStateToProps(state) {
     return a + b;
 		}
 	}
-
 	actdata.unshift(day)
 	let actnames = []
 	state.schedule.activities.forEach(function(activity){
@@ -72,14 +66,7 @@ function mapStateToProps(state) {
 				activityData: actdata,
 				activityNames: actnames,
 				barData: barData
-
-          };
+        };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-       scheduleActions: bindActionCreators(scheduleActions, dispatch)
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PieChart);
+export default connect(mapStateToProps)(PieChart);
