@@ -34,8 +34,8 @@ class PieChart extends Component {
 		);
 	} else {
 	return (
-		<div>
-			loading
+		<div className="comment">
+			Create a schedule and add an activity to view Charts
 		</div>
 	)}
 }

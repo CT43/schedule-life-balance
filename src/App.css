@@ -1,13 +1,8 @@
 .App {
 
 }
-/*
-.App-header {
-  text-align: center;
-  height: 150px;
-  padding: 20px;
-}
 
+/*
 .App-intro {
   font-size: large;
 }
@@ -68,6 +63,11 @@ textarea {
   width: 20%;
   padding-left: 20%;
 
+}
+
+.comment{
+  text-align: center;
+  padding-left: 20%;
 }
 
 .codyhouse {
