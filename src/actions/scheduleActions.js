@@ -77,3 +77,12 @@ export function deleteActivity(id) {
       .catch(error => console.log(error))
   };
 }
+export function deleteSchedule(id) {
+    return (dispatch) => {
+      axios.delete(`http://localhost:3001/api/v1/schedules/${id}`)
+      .then(response => {
+        dispatch({type: 'DELETE_SCHEDULE', id: id})
+      })
+      .catch(error => console.log(error))
+  };
+}
