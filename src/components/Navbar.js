@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
 import NewSchedule from './NewSchedule'
 import ScheduleSearch from './ScheduleSearch'
+
 class MyNavbar extends Component {
 
 	render() {

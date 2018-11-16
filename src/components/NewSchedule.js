@@ -10,26 +10,11 @@ import { withRouter } from 'react-router-dom'
 
 class NewSchedule extends Component {
 
-  // componentDidMount() {
-  //   this.props.ideaActions.fetchIdeas()
-  // }
-
-
-
   addNewSchedule = (e) => {
     e.preventDefault()
     this.props.scheduleActions.addNewSchedule()
     this.props.history.push(`/`)
   }
-
-  // enableEditing = (id) => {
-  //   this.props.ideaActions.enableEditing(id)
-  //   }
-  //
-  // deleteIdea = (id) => {
-  //   this.props.ideaActions.deleteIdea(id)
-  // }
-
 
   render() {
     return (
