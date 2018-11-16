@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, Form, FormControl, Button } from 'react-bootstrap'
 
 
 class ScheduleSearch extends Component {
@@ -27,12 +27,12 @@ class ScheduleSearch extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit} >
-        <input className='input' type="text"
+        <Form onSubmit={this.handleSubmit} >
+        <FormControl className='input' type="text"
           name="id" placeholder='Find Schedule By ID'
           value={this.state.id} onChange={this.handleInput} />
           <Button type="submit">Submit</Button>
-        </form>
+        </Form>
       </div>
     );
   }
