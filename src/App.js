@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class App extends Component {
   render() {
     return (
-      <Router>
+    <Router>
       <div className="App">
         <div className="App-header">
           <MyNavbar />
@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path="/schedule/:id" component={Schedule} />
         <PieChart />
       </div>
-      </Router>
+    </Router>
     );
   }
 }

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, Form, FormControl, Button } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import Schedule from "./Schedule";
 
 class ScheduleSearch extends Component {
 
