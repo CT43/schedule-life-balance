@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 import { Form, ControlLabel, Navbar, InputGroup, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
-import TimePicker from 'react-bootstrap-time-picker';
 
 class ActivityForm extends Component {
 
@@ -48,17 +46,17 @@ class ActivityForm extends Component {
     if(this.props.schedule.id !== undefined) {
     return (
       <div className="tile">
-      <Form inline onSubmit={this.handleSubmit}>
-        <FormGroup controlId="formInlineName">
-        <FormControl className='input' type="text"
-          name="name" placeholder='Enter an activity'
-          value={this.state.name} onChange={this.handleInput}
-          ref={this.props.titleRef} />
-        <FormControl type="time" className='input' name="start_time"
-            value={this.state.start_time} onChange={this.handleInput}/>
-        <FormControl type="time" className='input' name="end_time"
-            value={this.state.end_time} onChange={this.handleInput} />
-            </FormGroup>{' '}
+        <Form inline onSubmit={this.handleSubmit}>
+          <FormGroup controlId="formInlineName">
+            <FormControl className='input' type="text"
+              name="name" placeholder='Enter an activity'
+              value={this.state.name} onChange={this.handleInput}
+              ref={this.props.titleRef} />
+            <FormControl type="time" className='input' name="start_time"
+              value={this.state.start_time} onChange={this.handleInput}/>
+            <FormControl type="time" className='input' name="end_time"
+              value={this.state.end_time} onChange={this.handleInput} />
+          </FormGroup>{' '}
           <Button type="submit">Add Activity</Button>
         </Form>
       </div>
@@ -70,8 +68,6 @@ class ActivityForm extends Component {
     )
   }
 }}
-
-
 
 ActivityForm.propTypes = {
     scheduleActions: PropTypes.object,

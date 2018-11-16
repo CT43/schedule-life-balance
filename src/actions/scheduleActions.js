@@ -2,7 +2,6 @@ import * as allActions from './allActions';
 import axios from 'axios'
 import update from 'immutability-helper'
 
-
 export function fetchSchedule(id) {
     return (dispatch) => {
     axios.get(`http://localhost:3001/api/v1/schedule/${id}`)
@@ -41,12 +40,6 @@ export function addNewSchedule() {
   };
 }
 
-export function enableEditing(id) {
-    return (dispatch) => {
-        dispatch({type: 'ENABLE_EDITING', id: id})
-      }
-}
-
 export function addActivity(activity) {
     return (dispatch) => {
       axios.post(
@@ -77,6 +70,7 @@ export function deleteActivity(id) {
       .catch(error => console.log(error))
   };
 }
+
 export function deleteSchedule(id) {
     return (dispatch) => {
       axios.delete(`http://localhost:3001/api/v1/schedules/${id}`)
