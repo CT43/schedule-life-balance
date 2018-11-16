@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
-
+import { Form, ControlLabel, Navbar, InputGroup, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
+import TimePicker from 'react-bootstrap-time-picker';
 
 class ActivityForm extends Component {
 
@@ -45,23 +46,25 @@ class ActivityForm extends Component {
   render() {
     return (
       <div className="tile">
-        <form onSubmit={this.handleSubmit} >
-        <input className='input' type="text"
+      <Form inline onSubmit={this.handleSubmit}>
+        <FormGroup controlId="formInlineName">
+        <FormControl className='input' type="text"
           name="name" placeholder='Enter an activity'
           value={this.state.title} onChange={this.handleInput}
           ref={this.props.titleRef} />
-          <input type="time" className='input' name="start_time"
-            value={this.state.start_time} onChange={this.handleInput}>
-          </input>
-          <input type="time" className='input' name="end_time"
+        <FormControl type="time" className='input' name="start_time"
+            value={this.state.start_time} onChange={this.handleInput}/>
+        <FormControl type="time" className='input' name="end_time"
             value={this.state.end_time} onChange={this.handleInput} />
-
-          <input type="submit" />
-        </form>
+            </FormGroup>{' '}
+          <Button type="submit">Add Activity</Button>
+        </Form>
       </div>
     );
   }
 }
+
+
 
 ActivityForm.propTypes = {
     scheduleActions: PropTypes.object,

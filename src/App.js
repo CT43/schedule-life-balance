@@ -15,7 +15,6 @@ class App extends Component {
           <MyNavbar />
         </div>
         <ActivityForm />
-        <NewSchedule />
         <Schedule />
         <PieChart />
       </div>

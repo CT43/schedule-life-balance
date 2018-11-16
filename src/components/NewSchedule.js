@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
+
 
 class NewSchedule extends Component {
 
@@ -12,9 +14,7 @@ class NewSchedule extends Component {
   //   this.props.ideaActions.fetchIdeas()
   // }
 
-  state = {
-    id: '',
-  }
+
 
   addNewSchedule = (e) => {
     e.preventDefault()
@@ -33,16 +33,10 @@ class NewSchedule extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit} >
-        <input className='input' type="text"
-          name="id" placeholder='Enter an id'
-          value={this.state.id} onChange={this.handleInput} />
-          <input type="submit" />
-        </form>
-        <button className="newIdeaButton"
+        <Button className="newIdeaButton"
           onClick={this.addNewSchedule} >
           New Daily Schedule
-        </button>
+        </Button>
       </div>
     );
   }
