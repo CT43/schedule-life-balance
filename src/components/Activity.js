@@ -6,21 +6,20 @@ class Activity extends Component {
   //   this.props.onClick(this.props.idea.id)
   // }
   //
-  // handleDelete = () => {
-  //   this.props.onDelete(this.props.idea.id)
-  // }
+  handleDelete = () => {
+    this.props.onDelete(this.props.activity.id)
+  }
 
 
   render () {
-    debugger
     return(
-      <div>
-      <li className="single-event" data-start={this.props.activity.start_time} data-end={this.props.activity.end_time} data-content="event-abs-circuit" data-event="event-1">
-        <a href="#0">
-          <em className="event-name">Event 1</em>
-        </a>
-      </li>
-      </div>
+      <li className="single-event"  data-start={this.props.data_start} data-end={this.props.data_end} data-content="event-rowing-workout" data-event={this.props.data_event} style={this.props.style}>
+                  <em className="event-name">{this.props.timeElement} - {this.props.activity.name}                  <span className="deleteButton" onClick={this.handleDelete}>
+                                      x
+                                    </span>
+                  </em>
+
+              </li>
     )
   }
 }

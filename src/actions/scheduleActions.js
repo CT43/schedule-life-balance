@@ -68,11 +68,11 @@ export function addActivity(activity) {
   };
 }
 
-export function deleteIdea(id) {
+export function deleteActivity(id) {
     return (dispatch) => {
-      axios.delete(`http://localhost:3001/api/v1/ideas/${id}`)
+      axios.delete(`http://localhost:3001/api/v1/activities/${id}`)
       .then(response => {
-        dispatch({type: 'DELETE_IDEA', id: id})
+        dispatch({type: 'DELETE_ACTIVITY', id: id})
       })
       .catch(error => console.log(error))
   };

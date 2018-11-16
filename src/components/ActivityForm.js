@@ -41,6 +41,7 @@ class ActivityForm extends Component {
       end_time_min: this.durationCalculator(this.state.end_time),
     }
     this.props.scheduleActions.addActivity(activity)
+    this.setState({name: '',end_time: '',start_time: '',})
   }
 
   render() {
@@ -51,7 +52,7 @@ class ActivityForm extends Component {
         <FormGroup controlId="formInlineName">
         <FormControl className='input' type="text"
           name="name" placeholder='Enter an activity'
-          value={this.state.title} onChange={this.handleInput}
+          value={this.state.name} onChange={this.handleInput}
           ref={this.props.titleRef} />
         <FormControl type="time" className='input' name="start_time"
             value={this.state.start_time} onChange={this.handleInput}/>

@@ -7,7 +7,6 @@ import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
 
-
 class NewSchedule extends Component {
 
   // componentDidMount() {
@@ -47,19 +46,10 @@ NewSchedule.propTypes = {
     schedules: PropTypes.array
 };
 
-function mapStateToProps(state) {
-    return {
-        ideas: state.ideas.ideas,
-        editingIdeaId: state.ideas.editingIdeaId,
-        notification: state.ideas.notification,
-        schedule: state.schedule.schedule,
-          };
-}
-
 function mapDispatchToProps(dispatch) {
     return {
        scheduleActions: bindActionCreators(scheduleActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewSchedule);
+export default connect(null, mapDispatchToProps)(NewSchedule);

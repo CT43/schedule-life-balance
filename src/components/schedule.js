@@ -9,10 +9,18 @@ import PropTypes from 'prop-types';
 import Activity from './Activity';
 import Navbar from './Navbar'
 import ActivityForm from './ActivityForm'
+import { withRouter } from 'react-router-dom'
 
 
 class Schedule extends Component {
 
+  componentDidMount = () => {
+    if(this.props.match.params.id !== undefined){
+      let id = parseInt(this.props.match.params.id)
+      this.props.scheduleActions.fetchScheduleActivities(id)
+      this.props.scheduleActions.fetchSchedule(id)
+    }
+  }
   componentDidUpdate() {
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
@@ -392,8 +400,13 @@ class Schedule extends Component {
 });
   }
 
+  deleteIdea = (id) => {
+    this.props.scheduleActions.deleteActivity(id)
+  }
+
   render () {
     let eventCount = 0
+
     return(
       <div className="schedule">
       <br />
@@ -466,10 +479,9 @@ class Schedule extends Component {
                   let pxHeight;
                   pxTop = `${activity.start_time_min/1.5}px`
                   pxHeight = `${activity.duration_min/1.5}px`
-                    return (<li className="single-event" key={activity.id} data-start={activity.start_time} data-end={activity.end_time} data-content="event-rowing-workout" data-event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}>
-                  							<em className="event-name">{timeElement} - {activity.name}
-                                </em>
-                  					</li>
+                    return (<Activity className="single-event" onDelete={this.deleteIdea} activity={activity} timeElement={timeElement} key={activity.id} data_start={activity.start_time} data_end={activity.end_time} data-content="event-rowing-workout" data_event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}/>
+
+
                 )})}
       				</ul>
       			</li>
@@ -512,6 +524,7 @@ function mapStateToProps(state) {
         activities: state.schedule.activities,
         schedule: state.schedule.schedule,
           };
+
 }
 
 function mapDispatchToProps(dispatch) {
@@ -520,4 +533,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Schedule);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Schedule));

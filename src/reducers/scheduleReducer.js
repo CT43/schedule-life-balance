@@ -1,6 +1,6 @@
 import initialState from './initialState';
 import update from 'immutability-helper'
-import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE, ADD_ACTIVITY, FETCH_SCHEDULE, RECEIVE_SCHEDULE, RECEIVE_ACTIVITIES} from '../actions/allActions';
+import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE, ADD_ACTIVITY, FETCH_SCHEDULE, RECEIVE_SCHEDULE, RECEIVE_ACTIVITIES, DELETE_ACTIVITY} from '../actions/allActions';
 
 export default function schedules(state = {
   schedule: {},
@@ -25,6 +25,7 @@ export default function schedules(state = {
       console.log('RECEIVE_ACTIVITIES Action')
       return {activities: activities, schedule: state.schedule}
     case ADD_SCHEDULE:
+    debugger
       console.log('ADD_SCHEDULES Action')
       schedule = action.schedule
       return { schedule: schedule, activities: []}
@@ -42,11 +43,11 @@ export default function schedules(state = {
     //   ideaIndex = state.ideas.findIndex(x => x.id === action.idea.id)
     //   ideas = update(state.ideas, {[ideaIndex]: { $set: action.idea }})
     //   return {ideas: ideas, editingIdeaId: action.idea.id, notification: 'Successfully saved'}
-    // case DELETE_IDEA:
-    //   console.log('DELETE_IDEA Action')
-    //   ideaIndex = state.ideas.findIndex(x => x.id === action.id)
-    //   ideas = update(state.ideas, { $splice: [[ideaIndex, 1]]})
-    //   return {ideas: ideas, editingIdeaId: null, notification: 'Successfully deleted'}
+    case DELETE_ACTIVITY:
+      console.log('DELETE_ACTIVITY Action')
+      ideaIndex = state.ideas.findIndex(x => x.id === action.id)
+      ideas = update(state.ideas, { $splice: [[ideaIndex, 1]]})
+      return {ideas: ideas, editingIdeaId: null, notification: 'Successfully deleted'}
     default:
       return state;
   }
