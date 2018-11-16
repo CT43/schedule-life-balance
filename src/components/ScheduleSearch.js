@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
+import PropTypes from 'prop-types';
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
+
 
 class ScheduleSearch extends Component {
 
@@ -24,14 +29,24 @@ class ScheduleSearch extends Component {
       <div>
         <form onSubmit={this.handleSubmit} >
         <input className='input' type="text"
-          name="id" placeholder='Enter an id'
+          name="id" placeholder='Find Schedule By ID'
           value={this.state.id} onChange={this.handleInput} />
-          <input type="submit" />
+          <Button type="submit">Submit</Button>
         </form>
       </div>
     );
   }
 }
 
+ScheduleSearch.propTypes = {
+    scheduleActions: PropTypes.object,
+    schedules: PropTypes.array
+};
 
-export default ScheduleSearch;
+function mapDispatchToProps(dispatch) {
+    return {
+       scheduleActions: bindActionCreators(scheduleActions, dispatch)
+    };
+}
+
+export default connect(null, mapDispatchToProps)(ScheduleSearch);

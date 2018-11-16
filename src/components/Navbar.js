@@ -23,7 +23,6 @@ class MyNavbar extends Component {
             <FormGroup>
               <ScheduleSearch />
             </FormGroup>{' '}
-            <Button type="submit">Submit</Button>
           </Navbar.Form>
         </Navbar.Collapse>
       </Navbar>
