@@ -8,6 +8,7 @@ import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 import Activity from '../components/Activity';
 import Navbar from '../components/Navbar'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom'
 
 
@@ -472,7 +473,7 @@ class ScheduleContainer extends Component {
       		<ul>
       			<li className="events-group">
       				<div className="top-info">
-                <span>{this.props.schedule.id}
+                <span><span>{this.props.schedule.id}</span>
                   <span className="deleteButtonSc" onClick={this.deleteSchedule}>x</span>
                 </span>
               </div>

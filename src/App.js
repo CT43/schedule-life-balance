@@ -16,8 +16,10 @@ class App extends Component {
           </div>
           <ActivityForm />
           <Route exact path="/" component={ScheduleContainer} />
+          <Route exact path="/" component={PieChartContainer} />
           <Route exact path="/schedule/:id" component={ScheduleContainer} />
-          <PieChartContainer />
+          <Route exact path="/schedule/:id" component={PieChartContainer} />
+          <Route exact path="/schedule/:id/scheduleonly" component={ScheduleContainer} />
         </div>
       </Router>
     );
