@@ -6,13 +6,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
-import Activity from './Activity';
-import Navbar from './Navbar'
-import ActivityForm from './ActivityForm'
+import Activity from '../components/Activity';
+import Navbar from '../components/Navbar'
 import { withRouter } from 'react-router-dom'
 
 
-class Schedule extends Component {
+class ScheduleContainer extends Component {
 
   componentDidMount = () => {
     if(this.props.match.params.id !== undefined){
@@ -498,7 +497,7 @@ class Schedule extends Component {
   }
 }
 
-Schedule.propTypes = {
+ScheduleContainer.propTypes = {
     scheduleActions: PropTypes.object,
     schedule: PropTypes.object
 };
@@ -516,4 +515,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Schedule));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer));

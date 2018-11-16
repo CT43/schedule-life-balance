@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Pie from './Pie'
+import Pie from '../components/Pie'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 
-class PieChart extends Component {
+class PieChartContainer extends Component {
 
 	render() {
 		var colors = ['white', '#43A19E', '#7B43A1', '#F2317A', '#FF9824', '#58CF6C', '#DC4141', 'Gold', 'Aqua', 'Wheat', 'HotPink'];
@@ -36,7 +36,7 @@ class PieChart extends Component {
 }
 };
 
-PieChart.propTypes = {
+PieChartContainer.propTypes = {
     scheduleActions: PropTypes.object,
     schedule: PropTypes.object
 };
@@ -69,4 +69,4 @@ function mapStateToProps(state) {
         };
 }
 
-export default connect(mapStateToProps)(PieChart);
+export default connect(mapStateToProps)(PieChartContainer);
