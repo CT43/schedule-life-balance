@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Slice from './Slice'
 
-
 class Pie extends Component {
 
 	render() {
@@ -17,7 +16,6 @@ class Pie extends Component {
 
 		sum = this.props.data.reduce(function (carry, current) { return carry + current }, 0);
 		startAngle = 0;
-
 
 		return (
 			<svg width={ diameter } height={ diameter } viewBox={ '0 0 ' + diameter + ' ' + diameter } xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -47,7 +45,6 @@ class Pie extends Component {
 						names={names}
 					/>
 				}) }
-
 			</svg>
 		);
 	}

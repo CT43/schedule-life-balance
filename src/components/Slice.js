@@ -7,7 +7,6 @@ class Slice extends Component {
 			y: 0
 		};
 
-
    getAnglePoint(startAngle, endAngle, radius, x, y) {
     	var x1, y1, x2, y2;
 
@@ -22,7 +21,6 @@ class Slice extends Component {
    getRandomInt(min, max) {
     	return Math.floor(Math.random() * (max - min)) + min;
     }
-
 
 	componentWillReceiveProps() {
 		this.setState({ path: '' });
@@ -47,7 +45,6 @@ class Slice extends Component {
 			s = p.angle;
 		}
 
-		// Get angle points
 		a = this.getAnglePoint(p.startAngle, p.startAngle + s, p.radius, p.radius, p.radius);
 		b = this.getAnglePoint(p.startAngle, p.startAngle + s, p.radius - p.hole, p.radius, p.radius);
 
@@ -55,8 +52,6 @@ class Slice extends Component {
 		path.push('A'+ p.radius +','+ p.radius +' 0 '+ (s > 180 ? 1 : 0) +',1 '+ a.x2 + ',' + a.y2);
 		path.push('L' + b.x2 + ',' + b.y2);
 		path.push('A'+ (p.radius- p.hole) +','+ (p.radius- p.hole) +' 0 '+ (s > 180 ? 1 : 0) +',0 '+ b.x1 + ',' + b.y1);
-
-		// Close
 		path.push('Z');
 
 		this.setState({ path: path.join(' ') });

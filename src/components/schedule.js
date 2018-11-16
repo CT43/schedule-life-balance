@@ -22,7 +22,6 @@ class Schedule extends Component {
     }
   }
 
-
   componentDidUpdate() {
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
@@ -410,8 +409,6 @@ class Schedule extends Component {
     this.props.scheduleActions.deleteSchedule(this.props.schedule.id)
   }
 
-
-
   render () {
     let eventCount = 0
 
@@ -472,15 +469,14 @@ class Schedule extends Component {
       			<li><span>24:00</span></li>
       		</ul>
       	</div>
-
       	<div className="events">
       		<ul>
       			<li className="events-group">
-            <span className="deleteButtonSc" onClick={this.deleteSchedule}>
-              x
-            </span>
-      				<div className="top-info"><span>{this.props.schedule.id}</span></div>
-
+      				<div className="top-info">
+                <span>{this.props.schedule.id}
+                  <span className="deleteButtonSc" onClick={this.deleteSchedule}>x</span>
+                </span>
+              </div>
       				<ul>
                 {this.props.activities.map((activity) => {
                   eventCount += 1
@@ -491,35 +487,12 @@ class Schedule extends Component {
                   pxTop = `${activity.start_time_min/1.5}px`
                   pxHeight = `${activity.duration_min/1.5}px`
                     return (<Activity className="single-event" onDelete={this.deleteActivity} activity={activity} timeElement={timeElement} key={activity.id} data_start={activity.start_time} data_end={activity.end_time} data-content="event-rowing-workout" data_event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}/>
-
-
                 )})}
       				</ul>
       			</li>
       		</ul>
       	</div>
-
-      	<div className="event-modal">
-      		<header className="header">
-      			<div className="content">
-      				<span className="event-date"></span>
-      				<h3 className="event-name"></h3>
-      			</div>
-
-      			<div className="header-bg"></div>
-      		</header>
-
-      		<div className="body">
-      			<div className="event-info"></div>
-      			<div className="body-bg"></div>
-      		</div>
-
-      		<a href="#0" className="close">Close</a>
-      	</div>
-
-      	<div className="cover-layer"></div>
       </div>
-
       </div>
     )
   }
@@ -535,7 +508,6 @@ function mapStateToProps(state) {
         activities: state.schedule.activities,
         schedule: state.schedule.schedule,
           };
-
 }
 
 function mapDispatchToProps(dispatch) {
