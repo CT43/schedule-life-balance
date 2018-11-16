@@ -9,7 +9,7 @@ class MyNavbar extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#home">Schedule-Life-Balance</a>
+            <a >Schedule-Life-Balance</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

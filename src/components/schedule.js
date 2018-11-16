@@ -8,6 +8,8 @@ import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 import Activity from './Activity';
 import Navbar from './Navbar'
+import ActivityForm from './ActivityForm'
+
 
 class Schedule extends Component {
 

@@ -44,6 +44,7 @@ class ActivityForm extends Component {
   }
 
   render() {
+    if(this.props.schedule.id !== undefined) {
     return (
       <div className="tile">
       <Form inline onSubmit={this.handleSubmit}>
@@ -61,8 +62,13 @@ class ActivityForm extends Component {
         </Form>
       </div>
     );
+  } else {
+    return (
+      <div>
+      </div>
+    )
   }
-}
+}}
 
 
 
