@@ -1,6 +1,6 @@
 import initialState from './initialState';
 import update from 'immutability-helper'
-import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE, ADD_ACTIVITY, FETCH_SCHEDULE, RECEIVE_SCHEDULE, RECEIVE_ACTIVITIES, DELETE_ACTIVITY} from '../actions/allActions';
+import {FETCH_IDEAS, RECEIVE_IDEAS, ADD_IDEA, DELETE_IDEA, UPDATE_IDEA, ENABLE_EDITING, RESET_NOTIFICATION, ADD_SCHEDULE, ADD_ACTIVITY, FETCH_SCHEDULE, RECEIVE_SCHEDULE, RECEIVE_ACTIVITIES, DELETE_ACTIVITY, DELETE_SCHEDULE} from '../actions/allActions';
 
 export default function schedules(state = {
   schedule: {},
@@ -48,6 +48,9 @@ export default function schedules(state = {
       activityIndex = state.activities.findIndex(x => x.id === action.id)
       activities = update(state.activities, { $splice: [[activityIndex, 1]]})
       return {schedule: state.schedule, activities: activities}
+    case DELETE_SCHEDULE:
+      console.log('DELETE_SCHEDULE Action')
+      return {schedule: {}, activities: []}
     default:
       return state;
   }
