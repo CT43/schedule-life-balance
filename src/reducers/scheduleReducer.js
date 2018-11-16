@@ -10,6 +10,7 @@ export default function schedules(state = {
   let ideas;
   let schedule;
   let activity;
+  let activityIndex;
   let activities;
   let ideaIndex
   switch (action.type) {
@@ -45,9 +46,9 @@ export default function schedules(state = {
     //   return {ideas: ideas, editingIdeaId: action.idea.id, notification: 'Successfully saved'}
     case DELETE_ACTIVITY:
       console.log('DELETE_ACTIVITY Action')
-      ideaIndex = state.ideas.findIndex(x => x.id === action.id)
-      ideas = update(state.ideas, { $splice: [[ideaIndex, 1]]})
-      return {ideas: ideas, editingIdeaId: null, notification: 'Successfully deleted'}
+      activityIndex = state.activities.findIndex(x => x.id === action.id)
+      activities = update(state.activities, { $splice: [[activityIndex, 1]]})
+      return {schedule: state.schedule, activities: activities}
     default:
       return state;
   }
