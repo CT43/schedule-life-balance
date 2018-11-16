@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as scheduleActions from '../actions/scheduleActions';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 
 class NewSchedule extends Component {
 
@@ -18,6 +19,7 @@ class NewSchedule extends Component {
   addNewSchedule = (e) => {
     e.preventDefault()
     this.props.scheduleActions.addNewSchedule()
+    this.props.history.push(`/`)
   }
 
   // enableEditing = (id) => {
@@ -52,4 +54,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(null, mapDispatchToProps)(NewSchedule);
+export default withRouter(connect(null, mapDispatchToProps)(NewSchedule));

@@ -2,9 +2,7 @@ steps
 
 to do
   STOP EXPANDING FEATURES - FINISH AND MAKE IT LOOK GOOD
-  add bootstrp navbar or some outline
   routesrest
-  delete and update options- from ideaboard
   refactor
 
 extra feature ideas

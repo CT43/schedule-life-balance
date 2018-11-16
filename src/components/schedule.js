@@ -21,6 +21,8 @@ class Schedule extends Component {
       this.props.scheduleActions.fetchSchedule(id)
     }
   }
+
+
   componentDidUpdate() {
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';

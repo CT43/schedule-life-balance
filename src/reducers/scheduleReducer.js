@@ -26,7 +26,6 @@ export default function schedules(state = {
       console.log('RECEIVE_ACTIVITIES Action')
       return {activities: activities, schedule: state.schedule}
     case ADD_SCHEDULE:
-    debugger
       console.log('ADD_SCHEDULES Action')
       schedule = action.schedule
       return { schedule: schedule, activities: []}
