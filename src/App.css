@@ -68,6 +68,14 @@ textarea {
   color: white;
 }
 
+.deleteButtonSc {
+  float: right;
+  margin: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: black;
+}
+
 .center {
   width: 20%;
   padding-left: 20%;

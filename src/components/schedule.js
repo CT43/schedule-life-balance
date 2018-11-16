@@ -400,11 +400,17 @@ class Schedule extends Component {
 		});
 	}
 });
-  }
+}
 
-  deleteIdea = (id) => {
+  deleteActivity = (id) => {
     this.props.scheduleActions.deleteActivity(id)
   }
+
+  deleteSchedule = (id) => {
+    this.props.scheduleActions.deleteSchedule(this.props.schedule.id)
+  }
+
+
 
   render () {
     let eventCount = 0
@@ -470,6 +476,9 @@ class Schedule extends Component {
       	<div className="events">
       		<ul>
       			<li className="events-group">
+            <span className="deleteButtonSc" onClick={this.deleteSchedule}>
+              x
+            </span>
       				<div className="top-info"><span>{this.props.schedule.id}</span></div>
 
       				<ul>
@@ -481,7 +490,7 @@ class Schedule extends Component {
                   let pxHeight;
                   pxTop = `${activity.start_time_min/1.5}px`
                   pxHeight = `${activity.duration_min/1.5}px`
-                    return (<Activity className="single-event" onDelete={this.deleteIdea} activity={activity} timeElement={timeElement} key={activity.id} data_start={activity.start_time} data_end={activity.end_time} data-content="event-rowing-workout" data_event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}/>
+                    return (<Activity className="single-event" onDelete={this.deleteActivity} activity={activity} timeElement={timeElement} key={activity.id} data_start={activity.start_time} data_end={activity.end_time} data-content="event-rowing-workout" data_event={eventCss} style={{top: `${pxTop}`, height: `${pxHeight}`}}/>
 
 
                 )})}
