@@ -41,6 +41,7 @@ export function addNewSchedule() {
 }
 
 export function addActivity(activity) {
+  console.log('C')
     return (dispatch) => {
       axios.post(
         `http://localhost:3001/api/v1/activities`,
@@ -55,10 +56,12 @@ export function addActivity(activity) {
         }
         })
       .then(response => {
+        console.log('D')
         dispatch({type: 'ADD_ACTIVITY', activity: response.data})
       })
       .catch(error => console.log(error))
   };
+  console.log('E')
 }
 
 export function deleteActivity(id) {

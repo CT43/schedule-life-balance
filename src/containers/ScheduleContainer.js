@@ -26,6 +26,7 @@ class ScheduleContainer extends Component {
     jQuery(document).ready(function($){
 	var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
 	var transitionsSupported = ( $('.csstransitions').length > 0 );
+  // refs
 	//if browser does not support transitions - use a different event to trigger them
 	if( !transitionsSupported ) transitionEnd = 'noTransition';
 
@@ -57,6 +58,8 @@ class ScheduleContainer extends Component {
 
 		this.initSchedule();
 	}
+
+  //utils -
 
 	SchedulePlan.prototype.initSchedule = function() {
 		this.scheduleReset();

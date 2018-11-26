@@ -38,7 +38,9 @@ class ActivityForm extends Component {
       start_time_min: this.durationCalculator(this.state.start_time),
       end_time_min: this.durationCalculator(this.state.end_time),
     }
+    console.log('A')
     this.props.scheduleActions.addActivity(activity)
+    console.log('B')
     this.setState({name: '',end_time: '',start_time: '',})
   }
 
